@@ -4,10 +4,11 @@ server:
 spring:
   application:
     name: spring-config-play
+
   cloud:
     config:
       server:
         git:
           uri: https://github.com/smluv82/spring-config-play
-          search-paths: config/**
+          search-paths: config
           default-label: main
