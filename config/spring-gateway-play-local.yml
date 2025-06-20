@@ -29,11 +29,13 @@ spring:
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
 
-      routes:
-        - id: kotlin-api
-          uri: http://localhost:8020
-          predicates:
-            - Path=/kotlin-api/**
-          filters:
-            #            - name: LoginAuth
-            - StripPrefix=1
+      server:
+        webflux:
+          routes:
+            - id: kotlin-api
+              uri: http://localhost:8020
+              predicates:
+                - Path=/kotlin-api/**
+              filters:
+                #            - name: LoginAuth
+                - StripPrefix=1
