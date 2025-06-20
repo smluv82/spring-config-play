@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: spring_config_play
+    name: spring-config-play
   cloud:
     config:
       server:
