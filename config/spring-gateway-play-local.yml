@@ -1,36 +1,36 @@
 spring:
   cloud:
     gateway:
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allow-credentials: true
-            allowed-origins:
-              - "http://localhost:3000"
-            allowed-headers: "*"
-            exposed-headers: >
-              Cache-Control,
-              Content-Language,
-              Content-Type,
-              Expires,
-              Last-Modified,
-              Pragma,
-              Content-Disposition,
-              Set-Cookie,
-              Cookie
-            allowed-methods:
-              - PUT
-              - GET
-              - POST
-              - DELETE
-              - OPTIONS
-              - PATCH
-        add-to-simple-url-handler-mapping: true
-      default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
-
       server:
         webflux:
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allow-credentials: true
+                allowed-origins:
+                  - "http://localhost:3000"
+                allowed-headers: "*"
+                exposed-headers: >
+                  Cache-Control,
+                  Content-Language,
+                  Content-Type,
+                  Expires,
+                  Last-Modified,
+                  Pragma,
+                  Content-Disposition,
+                  Set-Cookie,
+                  Cookie
+                allowed-methods:
+                  - PUT
+                  - GET
+                  - POST
+                  - DELETE
+                  - OPTIONS
+                  - PATCH
+            add-to-simple-url-handler-mapping: true
+          default-filters:
+            - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
+
           routes:
             - id: kotlin-api
               uri: http://localhost:8020
